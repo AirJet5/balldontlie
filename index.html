@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BALLDONTLIE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +28,9 @@
   --good:#4CC27F; --bad:#F07474; --teamopt:#7FA7FF; --playeropt:#5FD08F; color-scheme:dark}
 
 *{box-sizing:border-box}
+[hidden]{display:none!important}
+.view>*,.panel>*,.grid2>*,.grid3>*,.fin>*,.kpis>*{min-width:0}
+img{max-width:100%}
 html{-webkit-text-size-adjust:100%}
 body{background:var(--paper);color:var(--ink);font:400 15px/1.5 var(--f-body);margin:0}
 a{color:var(--blue)}
@@ -264,6 +272,7 @@ ol.pr .pill{font-size:9px;padding:3px 6px}
 .btn.sec{background:var(--soft);color:var(--ink)}
 .pop-x{position:absolute;top:10px;right:12px;border:0;background:none;color:var(--paper);font-size:24px;line-height:1;cursor:pointer;opacity:.8}
 
+.fin .tm,.one .tm,.pick .tm,.wcard .tm,.aw .tm,.thead .tm{white-space:normal}
 /* misc */
 .subtabs{margin-bottom:4px}
 .neg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:10px}
@@ -277,6 +286,9 @@ ol.pr .pill{font-size:9px;padding:3px 6px}
 footer{max-width:1200px;margin:0 auto;padding-inline:16px;padding-block:0 40px;color:var(--muted);font-size:12px}
 @media (prefers-reduced-motion:no-preference){section.view{animation:in .25s ease-out}@keyframes in{from{transform:translateY(4px)}to{transform:none}}}
 </style>
+</head>
+<body>
+
 
 <header class="bar"><div class="bar-in">
   <a class="brand" href="#inici" data-go="inici"><span class="mark" aria-hidden="true"></span><b>BALLDONTLIE</b></a>
@@ -1009,6 +1021,7 @@ const app=document.getElementById('app');
 function render(scroll){
   document.getElementById('tabs').innerHTML=VIEWS.map(([k,l])=>`<button role="tab" aria-selected="${k===state.view}" data-go="${k}">${l}</button>`).join('');
   app.innerHTML=RENDER[state.view]();
+  try{const at=document.querySelector('.tabs [aria-selected="true"]'); const n=document.getElementById('tabs'); n.scrollLeft=at.offsetLeft-n.clientWidth/2+at.clientWidth/2;}catch(e){}
   if(scroll) window.scrollTo({top:0});
 }
 function go(v,scroll=true){state.view=v; try{history.replaceState(null,'','#'+v)}catch(e){} render(scroll);}
@@ -1035,3 +1048,6 @@ document.getElementById('foot').innerHTML=`Dades de l'Excel <b>ROSTERS BALLDONTL
 render(false);
 if(state.view==='inici') showPop();
 </script>
+
+</body>
+</html>
