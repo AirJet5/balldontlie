@@ -595,101 +595,7 @@ const WOJ = {
      "watch": "Cedric Coward",
      "text": "Victor Wembanyama (29,3 FPPG) i Jalen Johnson (27,7) són dos jugadors de top-5, i Sabonis aporta el que sempre aporta. Si hi sumes Buzelis, Coward i Ausar Thompson, tens la plantilla més completa de la lliga. Wemby cobra 16,9 milions aquest any: el millor contracte de BALLDONTLIE, i el que fa possible tot plegat. En Javi ha passat un estiu tranquil, amb només un petit traspàs. És el meu favorit per guanyar l'anell, i no m'amagaré si al maig m'equivoco."
     }
-   },
-   "sources": [
-    [
-     "Cleveland renova James Harden (3 anys, 97 M$)",
-     "https://es.thescore.com/nba/news/3582960/cavs-re-sign-harden-to-3-year-97-m-contract"
-    ],
-    [
-     "Jalen Duren i Detroit pacten 5 anys i 200 M$ (AP)",
-     "https://ny1.com/nyc/all-boroughs/ap-top-news/2026/10/02/pistons-jalen-duren-agree-on-5-year-200m-contract-ap-source-says"
-    ],
-    [
-     "Julian Reese, two-way amb New Orleans",
-     "https://www.rotoballer.com/?p=1949756"
-    ],
-    [
-     "Kyrie Irving entra al camp sense restriccions",
-     "https://www.rotoballer.com/player-news/kyrie-irving-enters-mavericks-camp-without-restrictions/1951192"
-    ],
-    [
-     "Kawhi Leonard torna als Raptors",
-     "https://www.cp24.com/news/sports/2026/09/14/kawhi-leonard-trade-to-toronto-raptors-to-be-completed-after-long-delay-report-2/"
-    ],
-    [
-     "Brandon Ingram (Clippers) es perdrà l'inici",
-     "https://www.nbcsports.com/nba/news/clippers-brandon-ingram-has-surgery-on-partially-torn-achilles-will-miss-start-of-season"
-    ],
-    [
-     "Mark Williams, operat de l'espatlla",
-     "https://www.azfamily.com/2026/09/11/suns-center-mark-williams-undergoes-shoulder-surgery-could-miss-extended-time/"
-    ],
-    [
-     "Mitchell Robinson signa amb Boston",
-     "https://www.foxsports.com/articles/nba/mitchell-robinson-agrees-to-a-3year-474-million-deal-with-the-celtics-ap-source-says"
-    ],
-    [
-     "Zach Edey, alta per treballar a ritme complet",
-     "https://www.nbcsports.com/fantasy/basketball/player-news/2026-09-29/zach-edey-ankle-cleared-for-full-speed-activity"
-    ],
-    [
-     "Damian Lillard, sense restriccions",
-     "https://www.nbcsports.com/fantasy/basketball/player-news/2026-09-28/damian-lillard-achilles-under-no-restrictions"
-    ],
-    [
-     "Jalen Williams, completament recuperat",
-     "https://roundtable.io/sports/nba/thunder/news/thunder-star-jalen-williams-reveals-he-is-fully-healthy"
-    ],
-    [
-     "Dereck Lively no té l'alta per al camp",
-     "https://www.tsn.ca/nba/article/report-mavs-lively-ii-foot-not-cleared-for-camp-n1-50016983/"
-    ],
-    [
-     "Porzingis, de baixa indefinida",
-     "https://www.nba.com/news/kristaps-porzingis-health-issue-out-indefinitely"
-    ],
-    [
-     "Henri Veesaar es perd la temporada",
-     "https://www.tsn.ca/nba/article/hawks-rookie-veesaar-acl-expected-to-miss-season-n1-50000438/"
-    ],
-    [
-     "Mouhamed Gueye, fractura al peu",
-     "https://wtop.com/sports/2026/07/hawks-forward-gueye-has-surgery-for-fractured-left-foot-and-could-miss-start-of-2026-27-season/"
-    ],
-    [
-     "Moses Moody, treball lleuger a pista",
-     "https://www.nbcsports.com/fantasy/basketball/player-news/2026-09-29/moses-moody-knee-limited-to-light-on-court-work"
-    ],
-    [
-     "LaMelo Ball a Minnesota, Naz Reid a Charlotte",
-     "https://wtop.com/sports/2026/06/hornets-trade-lamelo-ball-to-timberwolves-for-naz-reid-draft-picks-ap-source-says/"
-    ],
-    [
-     "Randle als Nets i Claxton als Bulls",
-     "https://abc7ny.com/post/sources-wolves-trade-randle-nets-claxton-off-bulls/19358698/"
-    ],
-    [
-     "DeMar DeRozan signa amb Denver",
-     "https://www.espn.com/nba/story/_/id/49684447"
-    ],
-    [
-     "Vucevic torna a Orlando",
-     "https://api-hub.nba.com/news/nikola-vucevic-returning-to-magic-on-1-year-deal"
-    ],
-    [
-     "Resultats del draft 2026",
-     "https://fadeawayworld.net/2026-nba-draft-full-results-complete-first-round-selections"
-    ],
-    [
-     "Bobby Marks: què mirar als 30 training camps",
-     "https://abc30.com/post/nba-preview-2026-27-what-bobby-marks-is-watching-30-training-camps/19891227/"
-    ],
-    [
-     "LeBron i Embiid a la pretemporada",
-     "https://bolavip.com/en/nba/why-arent-lebron-james-joel-embiid-playing-today-oct-5-for-76ers-vs-ny-knicks-in-2026-nba-preseason"
-    ]
-   ]
+   }
   }
  ]
 };
@@ -995,7 +901,6 @@ function vWoj(){
   <div class="head"><h3 style="font-size:28px">Conferència ${c==='E'?'Est':'Oest'}</h3><div class="seg" id="wConf">${[['E','Est'],['W','Oest']].map(([k,l])=>`<button aria-pressed="${k===c}" data-c="${k}">${l}</button>`).join('')}</div></div>
   <p class="wconf">${esc(A.confs[c])}</p>
   ${Object.entries(divs).map(([d,ts])=>`<div class="wdiv"><h4 class="eyebrow">Divisió ${esc(d)}</h4><div class="wgrid">${ts.map(card).join('')}</div></div>`).join('')}
-  <div class="panel"><span class="eyebrow">Fonts consultades</span><ul class="rules" style="margin-top:10px">${A.sources.map(([t,u])=>`<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul><p class="note">Plantilles, salaris i FPPG de la temporada 2025-26: sports.ws. Historial i traspassos: Excel de la lliga.</p></div>
   </section>`;
 }
 
