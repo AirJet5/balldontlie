@@ -372,8 +372,8 @@ const WOJ = {
    "kicker": "Previa de la temporada 2026-27",
    "title": "Tothom té un pla fins que arriba el Game 1",
    "intro": [
-    "Queden pocs dies perquè Dallas visiti Houston i obri l'any 7 de BALLDONTLIE. Hem repassat les 30 plantilles de la web, l'historial de cada franquícia, els traspassos de l'estiu i les notícies de la NBA: lesions, canvis d'equip i qui jugarà minuts de veritat.",
-    "Aquí no hi ha tebiesa. Hi ha favorits, hi ha qui ha guanyat l'estiu i hi ha qui l'haurà d'explicar al grup de WhatsApp. Si no estàs d'acord, tens fins al 20 d'octubre per fer un traspàs."
+    "Queden pocs dies perquè el 22 d'octubre arrenqui l'any 7 de BALLDONTLIE. Hem repassat les 30 plantilles de la web, l'historial de cada franquícia, els traspassos de l'estiu i les notícies de la NBA: lesions, canvis d'equip i qui jugarà minuts de veritat.",
+    "Aquí no hi ha tebiesa. Hi ha favorits, hi ha qui ha guanyat l'estiu i hi ha qui l'haurà d'explicar al grup de WhatsApp. Si no estàs d'acord, tens fins al 22 d'octubre per fer un traspàs abans que comenci la temporada."
    ],
    "picks": [
     [
@@ -688,7 +688,7 @@ function vInici(){
   const titles={}; const finals={};
   D.champs.forEach(c=>{ if(c.champ){titles[c.champ]=(titles[c.champ]||0)+1; finals[c.champ]=(finals[c.champ]||0)+1;} if(c.runner) finals[c.runner]=(finals[c.runner]||0)+1;});
   const tlist=Object.keys(finals).sort((a,b)=>(titles[b]||0)-(titles[a]||0)||finals[b]-finals[a]);
-  const g1=new Date('2026-10-20T00:00:00'); const today=new Date(); today.setHours(0,0,0,0);
+  const CS=calState(); const today=CS.today; const g1=CS.evs.find(e=>e.c==='competicio'&&e.t==='Comença la temporada').a;
   const days=Math.round((g1-today)/864e5);
   const dtxt=days>1?`Falten ${days} dies`:days===1?'Comença demà':days===0?'Comença avui':'Temporada en joc';
   const conf=c=>{ const divs={}; D.teams.filter(t=>t.conf===c).forEach(t=>(divs[t.div]=divs[t.div]||[]).push(t));
@@ -698,7 +698,7 @@ function vInici(){
   <div class="hero"><span class="mark" aria-hidden="true"></span><div><div class="eyebrow">Lliga fantasy NBA · since 2020</div><h1>BALL<br>DONT LIE</h1><p class="tag">Set temporades a les esquenes and still kickin'</p></div></div>
   <div class="grid2">
     <div class="champ"><span class="mark" aria-hidden="true"></span><div class="eyebrow">Campió vigent · ${last.season}</div><div class="v">${esc(TEAM[last.champ].name)}</div><div>${esc(TEAM[last.champ].mgr)} (${esc(TEAM[last.champ].nick)}) · Finalista: ${esc(TEAM[last.runner].name)}</div></div>
-    <div class="panel"><div class="eyebrow">Temporada 2026-27 · Any 7</div><h3 style="margin:8px 0 6px;font-size:28px">${dtxt}</h3><p class="note" style="margin:0">Game 1 el 20 d'octubre: ${tm('DAL')} a ${tm('HOU')}. Classificació, resultats i cròniques s'aniran afegint a mesura que avanci la temporada.</p>${(()=>{const S=calState();const n=S.evs.find(e=>!e.past&&!e.now);return n?`<button class="calnext" data-go="calendari"><span class="eyebrow">Pròxima data · ${fmtD(n.a)}</span><b>${esc(n.t)}</b><span class="note">Veure el calendari →</span></button>`:''})()}</div>
+    <div class="panel"><div class="eyebrow">Temporada 2026-27 · Any 7</div><h3 style="margin:8px 0 6px;font-size:28px">${dtxt}</h3><p class="note" style="margin:0">La temporada comença el ${g1.getDate()} ${deMes(g1)}. Classificació, resultats i cròniques s'aniran afegint a mesura que avanci la temporada.</p>${(()=>{const S=calState();const n=S.evs.find(e=>!e.past&&!e.now);return n?`<button class="calnext" data-go="calendari"><span class="eyebrow">Pròxima data · ${fmtD(n.a)}</span><b>${esc(n.t)}</b><span class="note">Veure el calendari →</span></button>`:''})()}</div>
   </div>
   <div class="tip">
     <div><span class="eyebrow">Límit salarial 26-27</span><span class="v">187 <small>M$</small></span><span class="note">201 M$ previst el 2027-28</span></div>
@@ -928,7 +928,7 @@ function vResultats(){
   const st=D.standings2526;
   const confT=c=>`<div class="panel"><h3>Conferència ${c==='E'?'Est':'Oest'}</h3><div class="tw"><table><thead><tr><th class="n">#</th><th>Equip</th><th class="n">Balanç</th><th class="n">Mitjana</th><th>Playoffs</th></tr></thead><tbody>${st.filter(r=>TEAM[r[0]].conf===c).map((r,i)=>`<tr><td class="n num mono">${i+1}</td><td>${tm(r[0],{link:1,full:1})}</td><td class="n num mono">${r[1]}</td><td class="n num mono">${r[2].toLocaleString('ca-ES',{minimumFractionDigits:1})}</td><td>${seeds[c][r[0]]?`<span class="pill own">Cap de sèrie ${seeds[c][r[0]]}</span>`:''}</td></tr>`).join('')}</tbody></table></div></div>`;
   return `<section class="view">
-  <div class="head"><div><div class="eyebrow">Temporada 2026-27 · Any 7</div><h2>Resultats i cròniques</h2><p class="lede">La temporada 2026-27 arrenca el 20 d'octubre amb ${tm('DAL')} a ${tm('HOU')}. Fins llavors, aquí tens com va acabar la 2025-26 segons la web de la lliga.</p></div></div>
+  <div class="head"><div><div class="eyebrow">Temporada 2026-27 · Any 7</div><h2>Resultats i cròniques</h2><p class="lede">La temporada 2026-27 arrenca el 22 d'octubre. Fins llavors, aquí tens com va acabar la 2025-26 segons la web de la lliga.</p></div></div>
   <div class="grid2">${confT('E')}${confT('W')}</div>
   <div class="panel"><div class="eyebrow">Crònica · Playoffs 2025-26</div><h3 style="font-size:30px;margin:8px 0 14px">Memphis torna a dalt de tot</h3>
    <div class="prose">
@@ -980,6 +980,7 @@ const CAL=[
  {m:10,d:1,c:'gestio',t:"Límit salarial de la temporada",x:"Es fixa el límit salarial per a la temporada següent."},
  {m:10,d:2,c:'gestio',t:"Tots els equips en regla",x:"Límit salarial, nombre de jugadors i inscripció feta."},
  {m:10,d:3,end:[10,10],c:'mercat',t:"Subhasta d'agents lliures",x:"Del 3 al 10 d'octubre. Durant la subhasta, el mercat de negociadors queda tancat."},
+ {m:10,d:21,c:'gestio',t:"Tall de jugadors sense contracte NBA",x:"Es tallen tots els jugadors que no tinguin contracte NBA."},
  {m:10,d:22,c:'competicio',t:"Comença la temporada",x:""},
  {m:10,d:25,c:'mercat',t:"Obertura del mercat d'agents lliures",x:""},
  {m:12,d:6,c:'allstar',t:"Info de l'All-Star",x:"S'envia el funcionament i les recompenses."},
@@ -1007,6 +1008,7 @@ function calState(){
   const faPO=today>=D_(2,21)&&today<D_(4,20);
   return {today,y0,evs,trade,auction,fa,faPO,D_};
 }
+const deMes=d=>{const m=MESOS_L[d.getMonth()];return (/^[aeiou]/.test(m)?"d'":'de ')+m};
 const fmtD=d=>`${d.getDate()} ${MESOS[d.getMonth()]}`;
 function vCal(){
   const S=calState(); const {today,y0,evs}=S;
@@ -1029,9 +1031,9 @@ function vCal(){
    <div class="nextev" style="--c:${CATS[next.c][1]}">
     <span class="eyebrow">${now.length?'Ara mateix':'Pròxima data'}</span>
     ${now.length?now.map(e=>`<div class="nw"><b>${esc(e.t)}</b><span>${fmtD(e.a)} – ${fmtD(e.b)}</span></div>`).join(''):''}
-    <div class="nx"><div class="big"><span class="num">${dd}</span><small>${dd===1?'dia':'dies'}</small></div><div><span class="cat" style="--c:${CATS[next.c][1]}">${CATS[next.c][0]}</span><h3>${esc(next.t)}</h3><span class="note">${next.a.getDate()} de ${MESOS_L[next.a.getMonth()]} de ${next.a.getFullYear()}${next.x?' · '+esc(next.x):''}</span></div></div>
+    <div class="nx"><div class="big"><span class="num">${dd}</span><small>${dd===1?'dia':'dies'}</small></div><div><span class="cat" style="--c:${CATS[next.c][1]}">${CATS[next.c][0]}</span><h3>${esc(next.t)}</h3><span class="note">${next.a.getDate()} ${deMes(next.a)} de ${next.a.getFullYear()}${next.x?' · '+esc(next.x):''}</span></div></div>
    </div>
-   <div class="mkts"><span class="eyebrow">Mercats avui · ${today.getDate()} de ${MESOS_L[today.getMonth()]}</span>
+   <div class="mkts"><span class="eyebrow">Mercats avui · ${today.getDate()} ${deMes(today)}</span>
     ${mkt('Traspassos, rondes i negociadors',S.trade&&!S.auction,tradeSub)}
     ${mkt('Agents lliures',S.fa||S.auction,faSub)}
    </div>
