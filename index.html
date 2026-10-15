@@ -375,8 +375,8 @@ const WOJ = {
    "kicker": "Previa de la temporada 2026-27",
    "title": "Tothom té un pla fins que arriba el Game 1",
    "intro": [
-    "Queden pocs dies perquè el 22 d'octubre arrenqui l'any 7 de BALLDONTLIE. Hem repassat les 30 plantilles de la web, l'historial de cada franquícia, els traspassos de l'estiu i les notícies de la NBA: lesions, canvis d'equip i qui jugarà minuts de veritat.",
-    "Aquí no hi ha tebiesa. Hi ha favorits, hi ha qui ha guanyat l'estiu i hi ha qui l'haurà d'explicar al grup de WhatsApp. Si no estàs d'acord, tens fins al 22 d'octubre per fer un traspàs abans que comenci la temporada."
+    "Queden pocs dies perquè el 20 d'octubre arrenqui l'any 7 de BALLDONTLIE. Hem repassat les 30 plantilles de la web, l'historial de cada franquícia, els traspassos de l'estiu i les notícies de la NBA: lesions, canvis d'equip i qui jugarà minuts de veritat.",
+    "Aquí no hi ha tebiesa. Hi ha favorits, hi ha qui ha guanyat l'estiu i hi ha qui l'haurà d'explicar al grup de WhatsApp. Si no estàs d'acord, tens fins al 20 d'octubre per fer un traspàs abans que comenci la temporada."
    ],
    "picks": [
     [
@@ -932,7 +932,7 @@ function vResultats(){
   const st=D.standings2526;
   const confT=c=>`<div class="panel"><h3>Conferència ${c==='E'?'Est':'Oest'}</h3><div class="tw"><table><thead><tr><th class="n">#</th><th>Equip</th><th class="n">Balanç</th><th class="n">Mitjana</th><th>Playoffs</th></tr></thead><tbody>${st.filter(r=>TEAM[r[0]].conf===c).map((r,i)=>`<tr><td class="n num mono">${i+1}</td><td>${tm(r[0],{link:1,full:1})}</td><td class="n num mono">${r[1]}</td><td class="n num mono">${r[2].toLocaleString('ca-ES',{minimumFractionDigits:1})}</td><td>${seeds[c][r[0]]?`<span class="pill own">Cap de sèrie ${seeds[c][r[0]]}</span>`:''}</td></tr>`).join('')}</tbody></table></div></div>`;
   return `<section class="view">
-  <div class="head"><div><div class="eyebrow">Temporada 2026-27 · Any 7</div><h2>Resultats i cròniques</h2><p class="lede">La temporada 2026-27 arrenca el 22 d'octubre. Fins llavors, aquí tens com va acabar la 2025-26 segons la web de la lliga.</p></div></div>
+  <div class="head"><div><div class="eyebrow">Temporada 2026-27 · Any 7</div><h2>Resultats i cròniques</h2><p class="lede">La temporada 2026-27 arrenca el 20 d'octubre. Fins llavors, aquí tens com va acabar la 2025-26 segons la web de la lliga.</p></div></div>
   <div class="grid2">${confT('E')}${confT('W')}</div>
   <div class="panel"><div class="eyebrow">Crònica · Playoffs 2025-26</div><h3 style="font-size:30px;margin:8px 0 14px">Memphis torna a dalt de tot</h3>
    <div class="prose">
@@ -984,8 +984,8 @@ const CAL=[
  {m:10,d:1,c:'gestio',t:"Límit salarial de la temporada",x:"Es fixa el límit salarial per a la temporada següent."},
  {m:10,d:2,c:'gestio',t:"Tots els equips en regla",x:"Límit salarial, nombre de jugadors i inscripció feta."},
  {m:10,d:3,end:[10,10],c:'mercat',t:"Subhasta d'agents lliures",x:"Del 3 al 10 d'octubre. Durant la subhasta, el mercat de negociadors queda tancat."},
- {m:10,d:21,c:'gestio',t:"Tall de jugadors sense contracte NBA",x:"Es tallen tots els jugadors que no tinguin contracte NBA."},
- {m:10,d:22,c:'competicio',t:"Comença la temporada",x:""},
+ {m:10,d:19,c:'gestio',t:"Tall de jugadors sense contracte NBA",x:"Es tallen tots els jugadors que no tinguin contracte NBA."},
+ {m:10,d:20,c:'competicio',t:"Comença la temporada",x:""},
  {m:10,d:25,c:'mercat',t:"Obertura del mercat d'agents lliures",x:""},
  {m:12,d:6,c:'allstar',t:"Info de l'All-Star",x:"S'envia el funcionament i les recompenses."},
  {m:12,d:20,c:'allstar',t:"Elecció dels seleccionadors",x:"Els 3 seleccionadors de cada conferència, en acabar el Game 20."},
