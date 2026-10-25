@@ -108,8 +108,8 @@ const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const CHAIN='52db9ba70e0cc0f6eaf7803dd07447a1f5477735fd3f661792ba94600c84e971', GENESIS=1692803367, PERIOD=3;
 /* Draws: fixed candidates, fixed time (Madrid, 25/10/2026). Time is UTC+1 on that date. */
 const DRAWS=[
- {id:'hez',player:'Mario Hezonja',short:'Hezonja',at:Date.UTC(2026,9,25,19,30,0)/1000,hhmm:'20:30',cands:['ORL','NOP','IND','WAS','NYK','DET','MIL','PHO','BOS','CHI','SAC','BKN','PHI','MIN','DEN','CLE','HOU','GSW','LAL','SAS','UTA','DAL']},
- {id:'lev',player:'Caris LeVert',short:'LeVert',at:Date.UTC(2026,9,25,19,32,0)/1000,hhmm:'20:32',cands:['MIL','WAS','LAL']}
+ {id:'lev',player:'Caris LeVert',short:'LeVert',at:Date.UTC(2026,9,25,20,0,0)/1000,hhmm:'21:00',cands:['MIL','WAS','LAL']},
+ {id:'hez',player:'Mario Hezonja',short:'Hezonja',at:Date.UTC(2026,9,25,20,2,0)/1000,hhmm:'21:02',cands:['ORL','NOP','IND','WAS','NYK','DET','MIL','PHO','BOS','CHI','SAC','BKN','PHI','MIN','DEN','CLE','HOU','GSW','LAL','SAS','UTA','DAL']}
 ];
 DRAWS.forEach(d=>{d.list=d.cands.slice().sort();d.round=Math.ceil((d.at-GENESIS)/PERIOD)+1;d.res=null;d.played=false});
 const mgr=a=>TEAMS.find(t=>t.abbr===a);
